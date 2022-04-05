@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6581460031031896788}
   - component: {fileID: 2479464774963709937}
   - component: {fileID: 4483043750301428693}
+  - component: {fileID: 3487258510162034585}
+  - component: {fileID: 2114279290604159564}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -132,5 +134,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6b5e3194e531f747aa84d843d98949d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementForce: 1000
+  directionSwitchTimer: 3
+--- !u!114 &3487258510162034585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4318005297048667276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9c8ee77f080302e8c607e3b8721100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  node: {fileID: 5111060904033808307, guid: 4274cea0ace3e76e8ba7f969a6d60cb2, type: 3}
+  node_lifetime: 10
+  time_between_node_drops: 0.25
+--- !u!114 &2114279290604159564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4318005297048667276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72deb1ce2c5f5b94da920166e85e4122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

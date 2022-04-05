@@ -6,6 +6,7 @@ public class TrailNodeData : MonoBehaviour
 {
     public float createdTime;
     public float destroyTime;
+    public float lifetime;
 
     void Update(){
     }

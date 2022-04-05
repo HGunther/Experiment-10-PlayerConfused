@@ -40,7 +40,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5111060904033808307}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -63,6 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createdTime: 0
   destroyTime: 0
+  lifetime: 0
 --- !u!1 &6072978401704052671
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,6 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7973355915892367443}
   - component: {fileID: 1352461219426437320}
+  - component: {fileID: 547468086254099204}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -145,3 +147,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &547468086254099204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6072978401704052671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72deb1ce2c5f5b94da920166e85e4122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
