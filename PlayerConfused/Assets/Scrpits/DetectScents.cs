@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class DetectScents : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public VisualIndicator visualIndicator;
+    public float maxOpacity = 1f;
+    public float minOpacity = 0f;
+    public float sizeMultiplier = 1f;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,8 +15,12 @@ public class DetectScents : MonoBehaviour
         TrailNodeData scentData;
         if (other.TryGetComponent<TrailNodeData>(out scentData))
         {
-            var scentStrength = (Time.time - scentData.createdTime) / scentData.lifetime;
+            var scentStrength = (scentData.lifetime - (Time.time - scentData.createdTime)) / scentData.lifetime;
             Debug.Log(scentStrength);
+            var newVisualIndicator = Instantiate<VisualIndicator>(visualIndicator, transform.position, transform.rotation);
+            newVisualIndicator.SetSize(3 * scentStrength);
+            newVisualIndicator.SetOpacity(scentStrength);
+            Destroy(newVisualIndicator.gameObject, 1f);
         }
     }
 

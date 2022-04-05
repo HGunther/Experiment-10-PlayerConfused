@@ -252,3 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f700ff9a80f26004ca7ac6964e995ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visualIndicator: {fileID: 4234967880866284070, guid: 6f4f2155e87660c43b588bd01bcc1633, type: 3}
+  maxOpacity: 1
+  minOpacity: 0
+  sizeMultiplier: 1
