@@ -11,12 +11,27 @@ public class ShowHideRender : MonoBehaviour
         {
             Debug.LogError("Error: Could not find gamestate object");
         }
-        GetComponent<SpriteRenderer>().enabled = gameState.vision;
+        UpdateRenderer(gameState.vision);
+        SubscribeToVisionChanges();
     }
 
-    // Update is called once per frame
-    void Update()
+    void UpdateRenderer(bool visionState)
     {
-        
+        GetComponent<SpriteRenderer>().enabled = visionState;
     }
+
+    void SubscribeToVisionChanges() { GameState.OnVisionChanged += UpdateRenderer; }
+    
+    void UnsubscribdFromVisionChanges() { GameState.OnVisionChanged -= UpdateRenderer; }
+
+    void OnDestroy()
+    {
+        UnsubscribdFromVisionChanges();
+    }
+
+    void OnDisable()
+    {
+        UnsubscribdFromVisionChanges();
+    }
+
 }
