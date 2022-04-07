@@ -11,12 +11,10 @@ public class DetectScents : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Entered trigger");
         TrailNodeData scentData;
         if (other.TryGetComponent<TrailNodeData>(out scentData))
         {
             var scentStrength = (scentData.lifetime - (Time.time - scentData.createdTime)) / scentData.lifetime;
-            Debug.Log(scentStrength);
             var newVisualIndicator = Instantiate<VisualIndicator>(visualIndicator, transform.position, transform.rotation);
             newVisualIndicator.SetSize(3 * scentStrength);
             newVisualIndicator.SetOpacity(scentStrength);
