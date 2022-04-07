@@ -1,17 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MainMenuController : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
     {
         
     }
@@ -19,11 +13,7 @@ public class MainMenuController : MonoBehaviour
     public void OnPlayClicked()
     {
         Debug.Log("Play clicked");
-        
-    }
-
-    public void OnCreditsClicked() {
-        Debug.Log("Credits clicked");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void OnQuitClicked()
