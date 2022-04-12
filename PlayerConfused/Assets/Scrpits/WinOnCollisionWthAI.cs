@@ -16,8 +16,8 @@ public class WinOnCollisionWthAI : MonoBehaviour
             {
                 Debug.LogError("No win screen found!");
             }
-            //var winscreen = FindObjectOfType<WinMenu>().gameObject;
             winscreen.SetActive(true);
+            FindObjectOfType<GameState>().SetVision(true);
         }
     }
 

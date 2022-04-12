@@ -17,4 +17,12 @@ public class GameState : MonoBehaviour
             OnVisionChanged(vision);
         }
     }
+
+    public void SetVision(bool on)
+    {
+        if (vision != on)
+        {
+            ToggleVision();
+        }
+    }
 }
