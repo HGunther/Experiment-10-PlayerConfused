@@ -11,13 +11,19 @@ public class PlayerMovement : MonoBehaviour
     private bool moving = false;
     private Vector2 accellerationDirection = new Vector2();
 
+    private Animator animator;
+
     void Awake(){
         
     }
 
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
+        if (!animator)
+        {
+            Debug.LogWarning("PlayerMovement could not find animator!");
+        }
     }
 
     void Update()
@@ -40,10 +46,14 @@ public class PlayerMovement : MonoBehaviour
         if (context.phase != InputActionPhase.Canceled){
             moving = true;
             accellerationDirection = context.ReadValue<Vector2>();
+
+            var angle = Vector2.SignedAngle(Vector2.up, accellerationDirection);
+            GetComponent<Rigidbody2D>().rotation = angle;
         }
         else {
             moving = false;
         }
+        animator.SetBool("Moving", moving);
     }
 
 }
