@@ -16,7 +16,7 @@ public class DetectScents : MonoBehaviour
         {
             var scentStrength = (scentData.lifetime - (Time.time - scentData.createdTime)) / scentData.lifetime;
             var newVisualIndicator = Instantiate<VisualIndicator>(visualIndicator, transform.position, transform.rotation);
-            newVisualIndicator.SetSize(3 * scentStrength);
+            newVisualIndicator.SetSize(3 * (1- scentStrength));
             newVisualIndicator.SetOpacity(scentStrength);
             Destroy(newVisualIndicator.gameObject, 1f);
         }
