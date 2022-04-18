@@ -823,6 +823,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2924163253189615988, guid: 77098f902872e721caf7b4a2ab9bde69, type: 3}
+      propertyPath: m_UseFullKinematicContacts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3048694372786586402, guid: 77098f902872e721caf7b4a2ab9bde69, type: 3}
       propertyPath: m_RootOrder
       value: 5

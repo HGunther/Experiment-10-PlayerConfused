@@ -5,9 +5,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float movementForce = 1000;
+    public float moveSpeed = 10;
     public float slowdown = 0.11f;
-    
+
     private bool moving = false;
     private Vector2 accellerationDirection = new Vector2();
 
@@ -28,12 +28,11 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         if (moving){
-            var force = accellerationDirection * movementForce * Time.deltaTime;
-            GetComponent<Rigidbody2D>().AddForce(force);
+            GetComponent<Rigidbody2D>().velocity = accellerationDirection * moveSpeed;
         }
         else {
             var vel = GetComponent<Rigidbody2D>().velocity;
-            GetComponent<Rigidbody2D>().velocity = vel * (1-slowdown);
+            GetComponent<Rigidbody2D>().velocity = vel * (1 - slowdown);
         }
     }
 

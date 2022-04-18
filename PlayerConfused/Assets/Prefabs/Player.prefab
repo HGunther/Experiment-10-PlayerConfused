@@ -206,6 +206,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 1dbbe3dd-e7ee-42c7-a3fd-2d5e1f1b53d7
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 33366d8e-bf9b-44c8-9d2e-41effca16360
+    m_ActionName: Player/Pause[/Keyboard/escape,/Keyboard/p,/Keyboard/pause]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -223,8 +227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae176f07ea703fa0a17f28cd28d1769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementForce: 1000
-  slowdown: 0.11
+  moveSpeed: 10
+  slowdown: 0.22
 --- !u!114 &9027570722716571948
 MonoBehaviour:
   m_ObjectHideFlags: 0
