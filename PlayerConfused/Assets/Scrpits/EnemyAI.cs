@@ -5,21 +5,23 @@ using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
-        public float speed = 200f;
+    public float speed = 200f;
     public float nextWaypointDistance = 3f;
+    public float fleeRadius = 4f;
 
     private Path path;
     private int currentWaypoint = 0;
-    private bool reachedEndOfPath = false;
 
     private Seeker seeker;
     private Rigidbody2D rb;
     private Transform target;
+    private Transform player;
 
     void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        player = FindObjectOfType<PlayerMovement>().transform;
 
         if (!seeker)
         {
@@ -29,9 +31,12 @@ public class EnemyAI : MonoBehaviour
         {
             Debug.LogWarning("EnemyAI could not find Rigidbody2D component");
         }
+        if (!player)
+        {
+            Debug.LogWarning("EnemyAI could not find PlayerMovement gameobject.");
+        }
 
-        Invoke("ChooseCheckpoint", 0f);
-        InvokeRepeating("ChooseNewCheckpoint", 3f, 3f);
+        ChooseCheckpoint();
     }
 
     void FixedUpdate()
@@ -45,18 +50,27 @@ public class EnemyAI : MonoBehaviour
         if (currentWaypoint >= path.vectorPath.Count)
         {
             Debug.Log("Reached end of path");
-            reachedEndOfPath = true;
+            ChooseCheckpoint();
             return;
+        }
+
+
+        var distanceFromPlayer = ((Vector2)player.position - rb.position).magnitude;
+        if (distanceFromPlayer < fleeRadius)
+        {
+            Vector2 directionAwayFromPlayer = (rb.position - (Vector2)player.position).normalized;
+            Vector2 force = directionAwayFromPlayer * speed * Time.deltaTime;
+            rb.AddForce(force);
+
+            ChooseCheckpoint();
         }
         else
         {
-            reachedEndOfPath = false;
+
+            Vector2 directionAlongPath = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+            Vector2 force = directionAlongPath * speed * Time.deltaTime;
+            rb.AddForce(force);
         }
-
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
-
-        rb.AddForce(force);
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
@@ -87,12 +101,5 @@ public class EnemyAI : MonoBehaviour
         target = checkpoints[checkpointIndex].transform;
 
         seeker.StartPath(rb.position, target.position, OnPathReady);
-    }
-
-    void ChooseNewCheckpoint()
-    {
-        if (!reachedEndOfPath) { return; }
-
-        ChooseCheckpoint();
     }
 }
