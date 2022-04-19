@@ -13,6 +13,7 @@ public class DetectScents : MonoBehaviour
         {
             var newVisualIndicator = Instantiate<VisualIndicator>(visualIndicator, transform.position, transform.rotation);
             newVisualIndicator.ReadData(scentData);
+            newVisualIndicator.UpdateVisual();
         }
     }
 

@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class VisualIndicator : MonoBehaviour
 {
-    TrailNodeData scentData;
+    ScentData scentData;
 
     public void ReadData(TrailNodeData node)
     {
-        scentData = node;
-        GetComponent<SpriteRenderer>().color = node.scentColor;
+        scentData = node.data;
+        GetComponent<SpriteRenderer>().color = scentData.scentColor;
     }
 
     void FixedUpdate()
     {
-        if (!scentData)
-        {
-            Debug.LogWarning("Visual Indicator called FixedUpdate without having data");
-            return;
-        }
+        //if (!scentData)
+        //{
+        //    Debug.LogWarning("Visual Indicator called FixedUpdate without having data");
+        //    return;
+        //}
 
+        UpdateVisual();
+    }
+
+    public void UpdateVisual()
+    {
         var remainingTime = scentData.lifetime - (Time.time - scentData.createdTime);
         var scentStrength = remainingTime / scentData.lifetime;
         if (remainingTime <= 0.001f)
@@ -29,7 +34,7 @@ public class VisualIndicator : MonoBehaviour
         }
 
         SetSize(3 * (1 - scentStrength));
-        SetOpacity( Mathf.Pow(scentStrength, 2));
+        SetOpacity(Mathf.Pow(scentStrength, 2));
     }
 
     public void SetSize(float size) {

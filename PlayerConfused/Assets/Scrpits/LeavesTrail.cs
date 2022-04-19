@@ -29,10 +29,10 @@ public class LeavesTrail : MonoBehaviour
     public void DropNode(){
         var newNode = Instantiate<GameObject>(node, transform.position, transform.rotation);
         var scentData = newNode.GetComponent<TrailNodeData>();
-        scentData.createdTime = Time.time;
-        scentData.destroyTime = Time.time + node_lifetime;
-        scentData.lifetime = node_lifetime;
-        scentData.scentColor = scentColor;
+        scentData.data.createdTime = Time.time;
+        scentData.data.destroyTime = Time.time + node_lifetime;
+        scentData.data.lifetime = node_lifetime;
+        scentData.data.scentColor = scentColor;
         Destroy(newNode, node_lifetime);
     }
 }
