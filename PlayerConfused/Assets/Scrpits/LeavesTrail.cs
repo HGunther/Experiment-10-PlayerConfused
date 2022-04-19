@@ -7,12 +7,15 @@ public class LeavesTrail : MonoBehaviour
     public GameObject node;
     public float node_lifetime = 10f;
     public float time_between_node_drops = .25f;
+
+    Color scentColor;
+    public int playerNumber = 0;
     
     private float last_node_drop_time = 0f;
 
     void Start()
     {
-        
+        scentColor = ColorGenerator.IndexToColor(playerNumber);
     }
 
     void Update()
@@ -29,6 +32,7 @@ public class LeavesTrail : MonoBehaviour
         scentData.createdTime = Time.time;
         scentData.destroyTime = Time.time + node_lifetime;
         scentData.lifetime = node_lifetime;
+        scentData.scentColor = scentColor;
         Destroy(newNode, node_lifetime);
     }
 }

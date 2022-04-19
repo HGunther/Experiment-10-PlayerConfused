@@ -4,12 +4,32 @@ using UnityEngine;
 
 public class VisualIndicator : MonoBehaviour
 {
-    
+    TrailNodeData scentData;
 
-    // Update is called once per frame
-    void Update()
+    public void ReadData(TrailNodeData node)
     {
-        
+        scentData = node;
+        GetComponent<SpriteRenderer>().color = node.scentColor;
+    }
+
+    void FixedUpdate()
+    {
+        if (!scentData)
+        {
+            Debug.LogWarning("Visual Indicator called FixedUpdate without having data");
+            return;
+        }
+
+        var remainingTime = scentData.lifetime - (Time.time - scentData.createdTime);
+        var scentStrength = remainingTime / scentData.lifetime;
+        if (remainingTime <= 0.001f)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        SetSize(3 * (1 - scentStrength));
+        SetOpacity( Mathf.Pow(scentStrength, 2));
     }
 
     public void SetSize(float size) {
