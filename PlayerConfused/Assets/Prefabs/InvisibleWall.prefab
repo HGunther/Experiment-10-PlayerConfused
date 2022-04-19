@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 7672231837186339654}
   - component: {fileID: 2001422656725514147}
   - component: {fileID: 7867772322866100219}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VisibleWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8705632952550704568
 Transform:
@@ -153,12 +153,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9194025715086899288}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InvisibleWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &9194025715086899288
 Transform:
