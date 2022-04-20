@@ -6,7 +6,7 @@ public class AIMovement : MonoBehaviour
 {
     public float movementForce = 1000;
     public float directionSwitchTimer = 3f;
-    public Rigidbody2D rigidbody;
+    public Rigidbody2D rb;
 
     private float lastDirectionSwitch = 0f;
     private Vector2 direction;
@@ -28,9 +28,9 @@ public class AIMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidbody.AddForce(direction * movementForce);
+        rb.AddForce(direction * movementForce);
         var angle = Vector2.SignedAngle(Vector2.up, direction);
-        rigidbody.rotation = angle;
+        rb.rotation = angle;
     }
 
     void PickDirection()
