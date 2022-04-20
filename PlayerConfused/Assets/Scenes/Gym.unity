@@ -8669,6 +8669,10 @@ PrefabInstance:
       propertyPath: vision
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 368410334045765827, guid: bd2e4ade7d6084d43893547b2218c839, type: 3}
+      propertyPath: winscreen
+      value: 
+      objectReference: {fileID: 1523194911}
     - target: {fileID: 840194705776068568, guid: bd2e4ade7d6084d43893547b2218c839, type: 3}
       propertyPath: m_Name
       value: GameState
