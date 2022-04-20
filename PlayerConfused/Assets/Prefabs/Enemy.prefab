@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 5111060904033808307, guid: 4274cea0ace3e76e8ba7f969a6d60cb2, type: 3}
-  node_lifetime: 6
-  time_between_node_drops: 0.4
+  node_lifetime: 10
+  time_between_node_drops: 0.75
   playerNumber: 0
 --- !u!1 &4318005297048667276
 GameObject:
@@ -321,4 +321,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 25
+  m_Radius: 17.5
