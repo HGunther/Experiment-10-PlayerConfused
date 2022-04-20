@@ -17,7 +17,8 @@ public class ShowHideRender : MonoBehaviour
 
     void UpdateRenderer(bool visionState)
     {
-        GetComponent<SpriteRenderer>().enabled = visionState;
+        var sprite = GetComponent<SpriteRenderer>();
+        sprite.enabled = visionState;
     }
 
     void SubscribeToVisionChanges() { GameState.OnVisionChanged += UpdateRenderer; }

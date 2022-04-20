@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8959990846203017647}
   - component: {fileID: 4739429418838583360}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Logic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 2479464774963709937}
   - component: {fileID: 7933615126274506295}
   - component: {fileID: 848232822877139380}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4318005297048667276}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -160,8 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e32cd1e90a3a340955e91bd9d23bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
-  nextWaypointDistance: 1
+  speed: 2
+  nextWaypointDistance: 0.1
   fleeRadius: 4
 --- !u!1 &4890631710041921328
 GameObject:
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 6480643460694208572}
   - component: {fileID: 7742871509683047467}
   - component: {fileID: 4811277846750987647}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rendering
   m_TagString: Untagged
   m_Icon: {fileID: 0}

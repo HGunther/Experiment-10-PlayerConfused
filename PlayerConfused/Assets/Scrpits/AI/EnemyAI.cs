@@ -55,23 +55,50 @@ public class EnemyAI : MonoBehaviour
         }
 
 
-        var distanceFromPlayer = ((Vector2)player.position - rb.position).magnitude;
-        if (distanceFromPlayer < fleeRadius)
-        {
-            Vector2 directionAwayFromPlayer = (rb.position - (Vector2)player.position).normalized;
-            Vector2 force = directionAwayFromPlayer * speed * Time.deltaTime;
-            rb.AddForce(force);
-            rb.rotation = Vector2.SignedAngle(Vector2.up, directionAwayFromPlayer);
 
-            ChooseCheckpoint();
-        }
-        else
+        var distanceFromPlayer = ((Vector2)player.position - rb.position).magnitude;
+        if (distanceFromPlayer > fleeRadius)
         {
+            MoveAlongPath();
+            return;
+        } else
+        {
+            // Too close to player
+            Vector2 directionTowardsPlayer = ((Vector2)player.position - rb.position).normalized;
             Vector2 directionAlongPath = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-            Vector2 force = directionAlongPath * speed * Time.deltaTime;
-            rb.AddForce(force);
-            rb.rotation = Vector2.SignedAngle(Vector2.up, directionAlongPath);
+
+            // Safe to move along path normally
+            if (Mathf.Abs(Vector2.SignedAngle(directionAlongPath, directionTowardsPlayer)) > 44)
+            {
+                MoveAlongPath();
+                return;
+            }
+            else
+            {
+                // Try next point in path
+                if (currentWaypoint + 1 < path.vectorPath.Count)
+                {
+                    Vector2 directionNextPoint = ((Vector2)path.vectorPath[currentWaypoint + 1] - rb.position).normalized;
+                    if (Mathf.Abs(Vector2.SignedAngle(directionNextPoint, directionTowardsPlayer)) > 44)
+                    {
+                        MoveAlongPath();
+                        return;
+                    }
+                }
+                
+            }
         }
+
+        // As last resort, pick new path
+        ChooseCheckpoint();
+    }
+
+    void MoveAlongPath()
+    {
+        Vector2 directionAlongPath = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        Vector2 force = directionAlongPath * speed * Time.deltaTime;
+        rb.rotation = Vector2.SignedAngle(Vector2.up, directionAlongPath);
+        rb.MovePosition(rb.position + force);
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
