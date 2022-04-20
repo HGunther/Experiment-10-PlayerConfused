@@ -64,7 +64,7 @@ public class EnemyAI : MonoBehaviour
         } else
         {
             // Too close to player
-            const float safeAngle = 60f;
+            const float safeAngle = 90f;
             Vector2 directionTowardsPlayer = ((Vector2)player.position - rb.position).normalized;
             Vector2 directionAlongPath = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
 

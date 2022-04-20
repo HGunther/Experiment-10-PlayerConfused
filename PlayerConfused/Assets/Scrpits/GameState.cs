@@ -17,6 +17,7 @@ public class GameState : MonoBehaviour
     private void Start()
     {
         wormCount = FindObjectsOfType<EnemyAI>().Length;
+        UpdateWormCount();
     }
 
     public void ToggleVision()
@@ -46,7 +47,7 @@ public class GameState : MonoBehaviour
         }
         else
         {
-            ShowWormCount();
+            UpdateWormCount();
         }
     }
 
@@ -56,15 +57,13 @@ public class GameState : MonoBehaviour
         Debug.Assert(winscreen, "No win screen found!");
         winscreen.SetActive(true);
         FindObjectOfType<GameState>().SetVision(true);
+        HideWormCount();
     }
 
-    void ShowWormCount()
+    void UpdateWormCount()
     {
         Debug.Assert(wormsLeftScreen, "No worms left screen!");
-        CancelInvoke("HideWormCount");
         wormsLeftScreen.GetComponentInChildren<UnityEngine.UI.Text>().text = wormCount.ToString() + " worms left";
-        wormsLeftScreen.SetActive(true);
-        Invoke("HideWormCount", 1.5f);
     }
 
     void HideWormCount()
