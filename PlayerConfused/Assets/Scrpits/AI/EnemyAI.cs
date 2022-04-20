@@ -61,15 +61,16 @@ public class EnemyAI : MonoBehaviour
             Vector2 directionAwayFromPlayer = (rb.position - (Vector2)player.position).normalized;
             Vector2 force = directionAwayFromPlayer * speed * Time.deltaTime;
             rb.AddForce(force);
+            rb.rotation = Vector2.SignedAngle(Vector2.up, directionAwayFromPlayer);
 
             ChooseCheckpoint();
         }
         else
         {
-
             Vector2 directionAlongPath = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
             Vector2 force = directionAlongPath * speed * Time.deltaTime;
             rb.AddForce(force);
+            rb.rotation = Vector2.SignedAngle(Vector2.up, directionAlongPath);
         }
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);

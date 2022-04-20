@@ -116,6 +116,7 @@ MonoBehaviour:
   node: {fileID: 5111060904033808307, guid: 4274cea0ace3e76e8ba7f969a6d60cb2, type: 3}
   node_lifetime: 10
   time_between_node_drops: 0.25
+  playerNumber: 0
 --- !u!114 &3665708263386388426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +263,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &4483043750301428693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +294,7 @@ MonoBehaviour:
   node: {fileID: 5111060904033808307, guid: 4274cea0ace3e76e8ba7f969a6d60cb2, type: 3}
   node_lifetime: 10
   time_between_node_drops: 0.25
+  playerNumber: 0
 --- !u!114 &2114279290604159564
 MonoBehaviour:
   m_ObjectHideFlags: 0
