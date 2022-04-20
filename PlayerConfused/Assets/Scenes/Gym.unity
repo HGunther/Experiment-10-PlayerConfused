@@ -393,7 +393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9194025715086899288, guid: 978b386e66b205849bdd538ba17e02fe, type: 3}
       propertyPath: m_RootOrder
-      value: 38
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 9194025715086899288, guid: 978b386e66b205849bdd538ba17e02fe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.20784314, g: 0.30980393, b: 0.32156864, a: 1}
+  m_Color: {r: 0.1764706, g: 0.2901961, b: 0.28235295, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2609,7 +2609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9194025715086899288, guid: 978b386e66b205849bdd538ba17e02fe, type: 3}
       propertyPath: m_RootOrder
-      value: 37
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 9194025715086899288, guid: 978b386e66b205849bdd538ba17e02fe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3686,7 +3686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.32156864, g: 0.4745098, b: 0.43529412, a: 1}
+  m_Color: {r: 1, g: 0.99215686, b: 0.50980395, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5760,7 +5760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9194025715086899288, guid: 978b386e66b205849bdd538ba17e02fe, type: 3}
       propertyPath: m_RootOrder
-      value: 36
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 9194025715086899288, guid: 978b386e66b205849bdd538ba17e02fe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6226,7 +6226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7921569, g: 0.8235294, b: 0.77254903, a: 1}
+  m_Color: {r: 1, g: 0.99215686, b: 0.50980395, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8583,7 +8583,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.50980395, g: 0.2, b: 0.16078432, a: 1}
+  m_BackGroundColor: {r: 0.234, g: 0.15195538, b: 0.14157, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
