@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 5111060904033808307, guid: 4274cea0ace3e76e8ba7f969a6d60cb2, type: 3}
-  node_lifetime: 10
-  time_between_node_drops: 0.25
+  node_lifetime: 6
+  time_between_node_drops: 0.4
   playerNumber: 0
 --- !u!1 &4318005297048667276
 GameObject:
@@ -161,9 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e32cd1e90a3a340955e91bd9d23bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1.5
   nextWaypointDistance: 0.1
-  fleeRadius: 4
+  fleeRadius: 5
 --- !u!114 &8984390937303411546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea70a8de7a535a47bacf7b3bdc1524c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 0.5
+  fadeTime: 0.4
 --- !u!58 &4811277846750987647
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -321,4 +321,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 30
+  m_Radius: 25

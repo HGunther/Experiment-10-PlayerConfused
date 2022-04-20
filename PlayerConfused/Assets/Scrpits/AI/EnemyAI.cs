@@ -64,11 +64,12 @@ public class EnemyAI : MonoBehaviour
         } else
         {
             // Too close to player
+            const float safeAngle = 60f;
             Vector2 directionTowardsPlayer = ((Vector2)player.position - rb.position).normalized;
             Vector2 directionAlongPath = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
 
             // Safe to move along path normally
-            if (Mathf.Abs(Vector2.SignedAngle(directionAlongPath, directionTowardsPlayer)) > 44)
+            if (Mathf.Abs(Vector2.SignedAngle(directionAlongPath, directionTowardsPlayer)) > safeAngle)
             {
                 MoveAlongPath();
                 return;
@@ -79,7 +80,7 @@ public class EnemyAI : MonoBehaviour
                 if (currentWaypoint + 1 < path.vectorPath.Count)
                 {
                     Vector2 directionNextPoint = ((Vector2)path.vectorPath[currentWaypoint + 1] - rb.position).normalized;
-                    if (Mathf.Abs(Vector2.SignedAngle(directionNextPoint, directionTowardsPlayer)) > 44)
+                    if (Mathf.Abs(Vector2.SignedAngle(directionNextPoint, directionTowardsPlayer)) > safeAngle)
                     {
                         MoveAlongPath();
                         return;

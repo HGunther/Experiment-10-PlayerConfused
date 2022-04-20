@@ -12,6 +12,7 @@ public class GameState : MonoBehaviour
     public bool vision = false;
 
     public GameObject winscreen;
+    public GameObject wormsLeftScreen;
 
     private void Start()
     {
@@ -43,6 +44,10 @@ public class GameState : MonoBehaviour
         {
             WinGame();
         }
+        else
+        {
+            ShowWormCount();
+        }
     }
 
     void WinGame()
@@ -51,5 +56,19 @@ public class GameState : MonoBehaviour
         Debug.Assert(winscreen, "No win screen found!");
         winscreen.SetActive(true);
         FindObjectOfType<GameState>().SetVision(true);
+    }
+
+    void ShowWormCount()
+    {
+        Debug.Assert(wormsLeftScreen, "No worms left screen!");
+        CancelInvoke("HideWormCount");
+        wormsLeftScreen.GetComponentInChildren<UnityEngine.UI.Text>().text = wormCount.ToString() + " worms left";
+        wormsLeftScreen.SetActive(true);
+        Invoke("HideWormCount", 1.5f);
+    }
+
+    void HideWormCount()
+    {
+        wormsLeftScreen.SetActive(false);
     }
 }
